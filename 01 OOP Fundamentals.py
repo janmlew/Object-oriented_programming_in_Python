@@ -1,4 +1,6 @@
 from datetime import datetime
+import numpy as np
+
 
 class MyCounter:
     def __init__(self):
@@ -25,12 +27,12 @@ class Employee:
         self.hire_date = datetime.today()
 
     # def set_name(self, new_name: str):
-        # assert isinstance(new_name, str)
-        # self.name = new_name
-        
+    # assert isinstance(new_name, str)
+    # self.name = new_name
+
     # def set_salary(self, new_salary: int):
-        # assert isinstance(new_salary, int)
-        # self.salary = new_salary
+    # assert isinstance(new_salary, int)
+    # self.salary = new_salary
 
     def give_raise(self, raise_amount: int):
         assert isinstance(raise_amount, int)
@@ -57,3 +59,31 @@ emp.give_raise(166)
 
 print(emp.salary)
 print(emp.monthly_salary)
+
+
+class Point:
+    def __init__(self, x=0.0, y=0.0):
+        self.x = x
+        self.y = y
+
+    @property
+    def distance_to_origin(self):
+        return np.sqrt(self.x ** 2 + self.y ** 2)
+
+    def reflect(self, axis):
+        if axis == 'x':
+            self.x = self.x
+            self.y = -self.y
+        elif axis == 'y':
+            self.x = -self.x
+            self.y = self.y
+        else:
+            print('axis should be either ''x'' or ''y''')
+            self.x = self.x
+            self.y = self.y
+
+
+print(Point(2, 3).distance_to_origin)
+pnt = Point(2,3)
+pnt = pnt.reflect(axis='y')
+print(pnt.distance_to_origin)
