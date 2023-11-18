@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class MyCounter:
     def __init__(self):
         self.count = None
@@ -13,17 +15,22 @@ print(mc.count)
 
 
 class Employee:
-    def __init__(self):
-        self.salary = None
-        self.name = None
+    def __init__(self, name, salary=0):
+        self.name = name
+        if salary > 0:
+            self.salary = salary
+        else:
+            self.salary = 0
+            print("Invalid salary!")
+        self.hire_date = datetime.today()
 
-    def set_name(self, new_name: str):
-        assert isinstance(new_name, str)
-        self.name = new_name
+    # def set_name(self, new_name: str):
+        # assert isinstance(new_name, str)
+        # self.name = new_name
         
-    def set_salary(self, new_salary: int):
-        assert isinstance(new_salary, int)
-        self.salary = new_salary
+    # def set_salary(self, new_salary: int):
+        # assert isinstance(new_salary, int)
+        # self.salary = new_salary
 
     def give_raise(self, raise_amount: int):
         assert isinstance(raise_amount, int)
@@ -34,9 +41,9 @@ class Employee:
         return self.salary / 12
 
 
-emp = Employee()
-emp.set_name('Korel Rossi')
-emp.set_salary(50000)
+emp = Employee("Tav", -1000)
+# emp.set_name('Korel Rossi')
+# emp.set_salary(50000)
 
 print(emp.name)
 print(dir(emp))
