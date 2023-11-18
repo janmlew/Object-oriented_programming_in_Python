@@ -25,10 +25,28 @@ class Employee:
         assert isinstance(new_salary, int)
         self.salary = new_salary
 
+    def give_raise(self, raise_amount: int):
+        assert isinstance(raise_amount, int)
+        self.salary = self.salary + raise_amount
+
+    @property
+    def monthly_salary(self) -> float:
+        return self.salary / 12
+
 
 emp = Employee()
-
 emp.set_name('Korel Rossi')
 emp.set_salary(50000)
 
+print(emp.name)
 print(dir(emp))
+print(emp.salary)
+
+emp.salary = emp.salary + 1500
+
+print(emp.salary)
+
+emp.give_raise(166)
+
+print(emp.salary)
+print(emp.monthly_salary)
