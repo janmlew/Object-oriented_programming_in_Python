@@ -66,7 +66,6 @@ class Point:
         self.x = x
         self.y = y
 
-    @property
     def distance_to_origin(self):
         return np.sqrt(self.x ** 2 + self.y ** 2)
 
@@ -83,7 +82,8 @@ class Point:
             self.y = self.y
 
 
-print(Point(2, 3).distance_to_origin)
-pnt = Point(2,3)
-pnt = pnt.reflect(axis='y')
-print(pnt.distance_to_origin)
+pt = Point(x=3.0)
+pt.reflect("y")
+print((pt.x, pt.y))
+pt.y = 4.0
+print(pt.distance_to_origin())
