@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class Player:
     MAX_POSITION = 10
     MAX_SPEED = 3
@@ -62,12 +64,20 @@ class BetterDate:
 
     @classmethod
     def from_str(cls, datestr):
-        parts = datestr.split("-")
-        year, month, day = int(parts[0]), int(parts[1]), int(parts[2])
+        # parts = datestr.split("-")
+        # year, month, day = int(parts[0]), int(parts[1]), int(parts[2])
+        year, month, day = map(int, datestr.split("-"))
+        return cls(year, month, day)
+
+    @classmethod
+    def from_datetime(cls, datetime_object):
+        year, month, day = datetime_object.year, datetime_object.month, datetime_object.day
         return cls(year, month, day)
 
 
-bd = BetterDate.from_str('2020-04-30')
+# bd = BetterDate.from_str('2020-04-30')
+today = datetime.today()
+bd = BetterDate.from_datetime(today)
 print(bd.year)
 print(bd.month)
 print(bd.day)
