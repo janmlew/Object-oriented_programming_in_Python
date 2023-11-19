@@ -54,3 +54,20 @@ print(p2.MAX_SPEED)
 print("MAX_SPEED of Player:")
 # Print Player.MAX_SPEED
 print(Player.MAX_SPEED)
+
+
+class BetterDate:
+    def __init__(self, year, month, day):
+        self.year, self.month, self.day = year, month, day
+
+    @classmethod
+    def from_str(cls, datestr):
+        parts = datestr.split("-")
+        year, month, day = int(parts[0]), int(parts[1]), int(parts[2])
+        return cls(year, month, day)
+
+
+bd = BetterDate.from_str('2020-04-30')
+print(bd.year)
+print(bd.month)
+print(bd.day)
