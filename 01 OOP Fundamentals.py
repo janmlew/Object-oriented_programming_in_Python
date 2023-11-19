@@ -1,5 +1,5 @@
 from datetime import datetime
-import numpy as np
+import math
 
 
 class MyCounter:
@@ -67,7 +67,7 @@ class Point:
         self.y = y
 
     def distance_to_origin(self):
-        return np.sqrt(self.x ** 2 + self.y ** 2)
+        return math.sqrt(self.x ** 2 + self.y ** 2)
 
     def reflect(self, axis):
         if axis == 'x':
