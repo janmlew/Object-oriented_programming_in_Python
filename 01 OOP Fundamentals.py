@@ -71,15 +71,11 @@ class Point:
 
     def reflect(self, axis):
         if axis == 'x':
-            self.x = self.x
             self.y = -self.y
         elif axis == 'y':
             self.x = -self.x
-            self.y = self.y
         else:
             print('axis should be either ''x'' or ''y''')
-            self.x = self.x
-            self.y = self.y
 
 
 pt = Point(x=3.0)
