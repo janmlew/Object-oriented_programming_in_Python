@@ -110,4 +110,4 @@ class Manager(Employee):
 
 mng = Manager('Debbie Lashko', 86500)
 print(mng.name)
-print(mng.display())
+mng.display()
