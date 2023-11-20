@@ -106,12 +106,22 @@ class Manager(Employee):
     # pass
     def __init__(self, name, salary=50000, project=None):
         Employee.__init__(self, name, salary)
+        self.bonus = None
         self.project = project
 
     def display(self):
         print("Manager", self.name)
 
+    def give_raise(self, amount, bonus=1.05):
+        Employee.give_raise(self, amount*bonus)
+
 
 mng = Manager('Debbie Lashko', 86500)
 print(mng.name)
 mng.display()
+
+mngr = Manager("Ashta Dunbar", 78500)
+mngr.give_raise(1000)
+print(mngr.salary)
+mngr.give_raise(2000, bonus=1.03)
+print(mngr.salary)
