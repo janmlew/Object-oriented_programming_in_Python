@@ -104,8 +104,12 @@ class Employee:
 
 class Manager(Employee):
     # pass
+    def __init__(self, name, salary=50000, project=None):
+        Employee.__init__(self, name, salary)
+        self.project = project
+
     def display(self):
-        print("Manager "+self.name)
+        print("Manager", self.name)
 
 
 mng = Manager('Debbie Lashko', 86500)
