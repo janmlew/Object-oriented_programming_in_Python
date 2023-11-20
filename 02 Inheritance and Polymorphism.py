@@ -103,8 +103,11 @@ class Employee:
 
 
 class Manager(Employee):
-    pass
+    # pass
+    def display(self):
+        print("Manager "+self.name)
 
 
 mng = Manager('Debbie Lashko', 86500)
 print(mng.name)
+print(mng.display())
