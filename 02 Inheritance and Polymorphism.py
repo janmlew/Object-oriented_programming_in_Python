@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 class Player:
     MAX_POSITION = 10
     MAX_SPEED = 3
@@ -18,10 +19,14 @@ class Player:
         print(drawing)
 
 
-p = Player(); p.draw()
-p.move(4); p.draw()
-p.move(5); p.draw()
-p.move(3); p.draw()
+p = Player()
+p.draw()
+p.move(4)
+p.draw()
+p.move(5)
+p.draw()
+p.move(3)
+p.draw()
 
 p1, p2 = Player(), Player()
 print("MAX_SPEED of p1 and p2 before assignment:")
@@ -81,3 +86,25 @@ bd = BetterDate.from_datetime(today)
 print(bd.year)
 print(bd.month)
 print(bd.day)
+
+
+class Employee:
+    MIN_SALARY = 30000
+
+    def __init__(self, name, salary=MIN_SALARY):
+        self.name = name
+        if salary >= Employee.MIN_SALARY:
+            self.salary = salary
+        else:
+            self.salary = Employee.MIN_SALARY
+
+    def give_raise(self, amount):
+        self.salary += amount
+
+
+class Manager(Employee):
+    pass
+
+
+mng = Manager('Debbie Lashko', 86500)
+print(mng.name)
