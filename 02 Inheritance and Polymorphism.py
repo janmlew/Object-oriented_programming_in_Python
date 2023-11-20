@@ -1,4 +1,5 @@
 from datetime import datetime
+import pandas as pd
 
 
 class BetterDate:
@@ -128,3 +129,9 @@ print(p2.MAX_SPEED)
 
 print("MAX_SPEED of Player:")
 print(Player.MAX_SPEED)
+
+
+class LoggedDF(pd.DataFrame):
+    def __init__(self, *args, **kwargs):
+        pd.DataFrame.__init__(self, *args, **kwargs)
+        self.created_at = datetime.today()
