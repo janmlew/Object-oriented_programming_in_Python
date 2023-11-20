@@ -1,68 +1,6 @@
 from datetime import datetime
 
 
-class Player:
-    MAX_POSITION = 10
-    MAX_SPEED = 3
-
-    def __init__(self):
-        self.position = 0
-
-    def move(self, steps):
-        if self.position + steps < Player.MAX_POSITION:
-            self.position = self.position + steps
-        else:
-            self.position = 10
-
-    def draw(self):
-        drawing = "-" * self.position + "|" + "-" * (Player.MAX_POSITION - self.position)
-        print(drawing)
-
-
-p = Player()
-p.draw()
-p.move(4)
-p.draw()
-p.move(5)
-p.draw()
-p.move(3)
-p.draw()
-
-p1, p2 = Player(), Player()
-print("MAX_SPEED of p1 and p2 before assignment:")
-print(p1.MAX_SPEED)
-print(p2.MAX_SPEED)
-
-p1.MAX_SPEED = 7
-
-print("MAX_SPEED of p1 and p2 after assignment:")
-print(p1.MAX_SPEED)
-print(p2.MAX_SPEED)
-
-print("MAX_SPEED of Player:")
-print(Player.MAX_SPEED)
-
-# Create Players p1 and p2
-p1, p2 = Player(), Player()
-
-print("MAX_SPEED of p1 and p2 before assignment:")
-# Print p1.MAX_SPEED and p2.MAX_SPEED
-print(p1.MAX_SPEED)
-print(p2.MAX_SPEED)
-
-# ---MODIFY THIS LINE---
-Player.MAX_SPEED = 7
-
-print("MAX_SPEED of p1 and p2 after assignment:")
-# Print p1.MAX_SPEED and p2.MAX_SPEED
-print(p1.MAX_SPEED)
-print(p2.MAX_SPEED)
-
-print("MAX_SPEED of Player:")
-# Print Player.MAX_SPEED
-print(Player.MAX_SPEED)
-
-
 class BetterDate:
     def __init__(self, year, month, day):
         self.year, self.month, self.day = year, month, day
@@ -113,7 +51,7 @@ class Manager(Employee):
         print("Manager", self.name)
 
     def give_raise(self, amount, bonus=1.05):
-        Employee.give_raise(self, amount*bonus)
+        Employee.give_raise(self, amount * bonus)
 
 
 mng = Manager('Debbie Lashko', 86500)
@@ -125,3 +63,68 @@ mngr.give_raise(1000)
 print(mngr.salary)
 mngr.give_raise(2000, bonus=1.03)
 print(mngr.salary)
+
+
+class Player:
+    MAX_POSITION = 10
+    MAX_SPEED = 3
+
+    def __init__(self):
+        self.position = 0
+
+    def move(self, steps):
+        if self.position + steps < Player.MAX_POSITION:
+            self.position = self.position + steps
+        else:
+            self.position = 10
+
+    def draw(self):
+        drawing = "-" * self.position + "|" + "-" * (Player.MAX_POSITION - self.position)
+        print(drawing)
+
+
+class Racer(Player):
+    MAX_SPEED = 5
+
+
+r = Racer()
+p = Player()
+print(r.MAX_SPEED)
+print(p.MAX_SPEED)
+
+p.draw()
+p.move(4)
+p.draw()
+p.move(5)
+p.draw()
+p.move(3)
+p.draw()
+
+p1, p2 = Player(), Player()
+print("MAX_SPEED of p1 and p2 before assignment:")
+print(p1.MAX_SPEED)
+print(p2.MAX_SPEED)
+
+p1.MAX_SPEED = 7
+
+print("MAX_SPEED of p1 and p2 after assignment:")
+print(p1.MAX_SPEED)
+print(p2.MAX_SPEED)
+
+print("MAX_SPEED of Player:")
+print(Player.MAX_SPEED)
+
+p1, p2 = Player(), Player()
+
+print("MAX_SPEED of p1 and p2 before assignment:")
+print(p1.MAX_SPEED)
+print(p2.MAX_SPEED)
+
+Player.MAX_SPEED = 7
+
+print("MAX_SPEED of p1 and p2 after assignment:")
+print(p1.MAX_SPEED)
+print(p2.MAX_SPEED)
+
+print("MAX_SPEED of Player:")
+print(Player.MAX_SPEED)
