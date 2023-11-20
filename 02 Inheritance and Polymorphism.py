@@ -135,3 +135,8 @@ class LoggedDF(pd.DataFrame):
     def __init__(self, *args, **kwargs):
         pd.DataFrame.__init__(self, *args, **kwargs)
         self.created_at = datetime.today()
+
+    def to_csv(self, *args, **kwargs):
+        temp = self.copy()
+        temp["created_at"] = self.created_at
+        pd.DataFrame.to_csv(temp, *args, **kwargs)
