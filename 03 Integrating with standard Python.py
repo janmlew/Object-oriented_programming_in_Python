@@ -44,7 +44,6 @@ class Employee:
     def __init__(self, name, salary=30000):
         self.name, self.salary = name, salary
 
-    # Add the __str__() method
     def __str__(self):
         cust_str = """
         Employee name: {name}
@@ -61,3 +60,38 @@ print(repr(emp1))
 emp2 = Employee("Carolyn Ramirez", 35000)
 print(emp2)
 print(repr(emp2))
+
+
+def invert_at_index(x, ind):
+    try:
+        return 1 / x[ind]
+    except ZeroDivisionError:
+        print("Cannot divide by zero!")
+    except IndexError:
+        print("Index out of range!")
+
+
+a = [5, 6, 0, 7]
+
+print(invert_at_index(a, 1))
+print(invert_at_index(a, 2))
+print(invert_at_index(a, 5))
+
+
+class SalaryError(ValueError):
+    pass
+
+
+class BonusError(SalaryError):
+    pass
+
+
+class Employee:
+    MIN_SALARY = 30000
+    MAX_RAISE = 5000
+
+    def __init__(self, name, salary=30000):
+        self.name = name
+        if salary < self.MIN_SALARY:
+            raise SalaryError("Salary is too low!")
+        self.salary = salary
