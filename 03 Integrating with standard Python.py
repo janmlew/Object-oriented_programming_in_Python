@@ -88,10 +88,18 @@ class BonusError(SalaryError):
 
 class Employee:
     MIN_SALARY = 30000
-    MAX_RAISE = 5000
+    MAX_BONUS = 5000
 
     def __init__(self, name, salary=30000):
         self.name = name
-        if salary < self.MIN_SALARY:
+        if Employee.MIN_SALARY > salary:
             raise SalaryError("Salary is too low!")
         self.salary = salary
+
+    def give_bonus(self, amount):
+        if amount > Employee.MAX_BONUS:
+            raise BonusError("The bonus amount is too high!")
+        elif self.salary + amount < Employee.MIN_SALARY:
+            raise SalaryError("The salary after bonus is too low!")
+        else:
+            self.salary += amount
