@@ -51,8 +51,13 @@ class Employee:
         Employee salary: {salary}""".format(name=self.name, salary=self.salary)
         return cust_str
 
+    def __repr__(self):
+        return "Employee(\"{}\", {})".format(self.name, self.salary)
+
 
 emp1 = Employee("Amar Howard", 30000)
 print(emp1)
+print(repr(emp1))
 emp2 = Employee("Carolyn Ramirez", 35000)
 print(emp2)
+print(repr(emp2))
