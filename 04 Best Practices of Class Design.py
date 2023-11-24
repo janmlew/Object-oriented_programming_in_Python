@@ -11,12 +11,16 @@ class Rectangle:
 
 
 class Square(Rectangle):
-    def __init__(self, w, h):
-        super().__init__(w, h)
+    def __init__(self, w):
+        super().__init__(w, w)
         self.w = w
         self.h = w
 
     def set_h(self, h):
+        self.h = h
+        self.w = h
+
+    def set_w(self, h):
         self.h = h
         self.w = h
 
