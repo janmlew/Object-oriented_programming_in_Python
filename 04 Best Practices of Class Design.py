@@ -82,3 +82,4 @@ class Customer:
 c = Customer('test', 1000)
 c.balance = 2000
 print(c.balance)
+# c.balance = -1000
