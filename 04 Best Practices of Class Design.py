@@ -111,5 +111,5 @@ class LoggedDF(pd.DataFrame):
 ldf = LoggedDF({"col1": [1, 2], "col2": [3, 4]})
 
 # Assign a new value to ldf's created_at attribute and print
-# ldf.created_at = "2035-07-13"
+# ldf.created_at = "2035-07-13" <-- This line should generate an error.
 print(ldf.created_at)
