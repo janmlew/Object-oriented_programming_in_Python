@@ -65,3 +65,20 @@ class Customer:
             raise ValueError
         else:
             self._balance = new_bal
+
+    @property
+    def balance(self):
+        return self._balance
+
+    @balance.setter
+    def balance(self, new_bal):
+        if new_bal < 0:
+            raise ValueError
+        else:
+            self._balance = new_bal
+        print("Setter method is called")
+
+
+c = Customer('test', 1000)
+c.balance = 2000
+print(c.balance)
